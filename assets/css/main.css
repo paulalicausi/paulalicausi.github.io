@@ -30,17 +30,17 @@
 
 @font-face {
     font-family: 'bebas neue';
-    src: local('bebas neue') url('/assets/fonts/bebas neue.eot') format("opentype");
+    src: local('bebas neue') url('fonts/bebas neue.eot') format("opentype");
 }
 
 @font-face {
     font-family: 'bebas neue';
-    src: local('bebas neue'), url(/assets/fonts/bebas neue.eot);
-    src: local('bebas neue'), url(/assets/fonts/bebas neue.eot?#iefix) format('embedded-opentype'),
-         url(/assets/fonts/bebas neuet.woff2) format('woff2'),
-         url(/assets/fonts/bebas neue.woff) format('woff'),
-         url(/assets/fonts/bebas neue.ttf) format('truetype'),
-         url(/assets/fonts/bebas neue.svg#bebas_neueregular) format('svg');
+    src: local('bebas neue'), url(fonts/bebas neue.eot);
+    src: local('bebas neue'), url(fonts/bebas neue.eot?#iefix) format('embedded-opentype'),
+         url(fonts/bebas neuet.woff2) format('woff2'),
+         url(fonts/bebas neue.woff) format('woff'),
+         url(fonts/bebas neue.ttf) format('truetype'),
+         url(fonts/bebas neue.svg#bebas_neueregular) format('svg');
     font-weight: normal;
     font-style: normal;
 }
