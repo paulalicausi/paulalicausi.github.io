@@ -1,23 +1,44 @@
 {
-  "name": "Cocoon",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "paula-licausi",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.3.7",
+    "framer-motion": "^12.23.10",
+    "gsap": "^3.13.0",
+    "html2canvas": "^1.4.1",
+    "react": "^19.1.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.3",
+    "react-scripts": "^0.0.0",
+    "web-vitals": "^2.1.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "author": "pharaohlab",
-  "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-cli": "^1.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-livereload": "^3.8.1",
-    "gulp-ruby-sass": "^2.1.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0",
-    "livereload": "^0.6.2"
-  },
-  "description": "Cocoon - Portfolio"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
