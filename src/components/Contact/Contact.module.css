@@ -1,0 +1,53 @@
+.contact svg {
+    color: #CEA3F7;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.contact a, .contact span {
+    color: #CEA3F7;
+}
+
+.contact a:hover {
+    opacity: .8;
+}
+
+.contact img {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact .getInTouch {
+    font-size: 12px;
+    margin-top: 50px;
+}
+
+.contact ul {
+    padding: 0;
+}
+
+.contact ul li {
+    font-size: 15px;
+    list-style: none;
+    position: relative;
+    padding-left: 30px; 
+    margin-bottom: 10px;
+}
+
+.contact ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 26px;
+    height: 26px;
+    background-image: url("../../assets/img/li.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 1200px) {
+    .contact .getInTouch {
+        margin-top: 0;
+    }
+}
