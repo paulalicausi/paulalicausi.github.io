@@ -1,0 +1,74 @@
+.projects .categories {
+  margin-bottom: 50px;
+}
+
+.projects .categories button {
+  background-color: transparent;
+  color: #e8e8c6;
+  border-color: #A3F7BF !important;
+}
+
+.projects .categories button.active {
+    background-color: #A3F7BF;
+    color: #252525;
+}
+
+.projects h3 {
+  font-size: 17px;
+  margin-top: 15px;
+  text-transform: uppercase;
+  height: 40px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.projects .missionItem {
+  margin-bottom: 40px;
+}
+
+.projects .missionItem .image {
+  position: relative;
+}
+
+.projects .missionItem .image:hover a {
+  opacity: .7;
+  transition: .2s ease-in-out;
+}
+
+.projects .missionItem .image a {
+  position: absolute;
+  background-color: #252525;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: .2s ease-in-out;
+}
+
+.projects .missionItem .image svg {
+  height: 30px;
+  color: #CEA3F7;
+}
+
+.projects .details p {
+  font-size: 12px;
+}
+
+.projects .keywords {
+    color: #CEA3F7;
+}
+
+.projects .time {
+  font-size: 11px;
+  margin-bottom: 5px;
+  text-align: right;
+}
+
+.projects img {
+  border-radius: 10px;
+}
