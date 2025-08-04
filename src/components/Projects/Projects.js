@@ -69,9 +69,11 @@ const Projects = () => {
                   <div className={projectStyles.missionItem}>
                     <p className={projectStyles.time}>{project.time}</p>
                     <div className={projectStyles.image}>
-                      <a target="_blank" rel="noreferrer" href={project.url}>
-                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                      </a>
+                      {project.url.length > 0 &&
+                        <a target="_blank" rel="noreferrer" href={project.url}>
+                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                        </a>
+                      }                      
                       <img src={project.img} alt={project.name} />
                     </div>
                     <h3>{project.name}</h3>
