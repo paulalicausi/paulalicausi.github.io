@@ -1,0 +1,27 @@
+.game .gameFont {
+    font-family: "VT323", monospace;
+    font-size: 30px;
+}
+
+.game .gameFont span {
+    color: #CEA3F7;
+
+}
+
+.game .welcome {
+    position: absolute;
+    left: calc(50% - 168px);
+}
+
+.game .instructions {
+    color: #A3F7BF;
+}
+
+.game .skipGame {
+    border: 0;
+    background-color: transparent;
+    color: #e8e8c6;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
