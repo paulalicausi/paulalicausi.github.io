@@ -35,6 +35,8 @@ function Nav() {
         ))}
       </nav>
 
+      <div className="bg"></div>
+
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           {navItems.map(({ to, component }) => (

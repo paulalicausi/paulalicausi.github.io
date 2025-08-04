@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=VT323&display=swap');
+
+/* Root */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #252525;
+  font-family: "Roboto Mono", monospace;
+  color: #e8e8c6;
+}
+
+.bg {
+    background-repeat: repeat;
+    background-image: url('./assets/img/bg.png');
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    opacity: .6;
+    z-index: -1;
+}
+
+p {
+    color: #e8e8c6;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h4 {
+    font-family: "VT323", monospace;
+    color: #A3F7BF;
+}
+
+h2 {
+  padding: 16px 20px;
+}
+
+footer {
+  font-size: 10px;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+.page {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding-left: 100px;
+    padding-top: 0;
+  }
+}
+
+/* Mission items */
+.mission-list {
+  background-image: none;
+}
+
+.mission-item {
+    padding: 20px 0;
+    margin-bottom: 20px;
+    color: #e8e8c6;
+    border: 0;
+    border-bottom: 0.5px solid #444;
+}
+
+.mission-list .col-12:last-child .mission-item{
+  border-bottom: 0;
+}
+
+.accordion-item {
+    background: transparent;
+}
+
+.accordion-item .accordion-body {
+    padding: 0;
+}
+
+.accordion-item .accordion-body .keywords {
+    color: #CEA3F7;
+    font-size: 11px;
+}
+
+.accordion-item .accordion-body small {
+    color: #A3F7BF;
+    font-size: 12px;
+}
+
+.accordion-item .accordion-body h3 {
+  font-size: 17px;
+}
+
+.accordion-item .accordion-body p {
+  font-size: 13px;
+}
+
+.accordion-item .accordion-header button {
+    border-radius: 30px 0;
+    background: transparent;
+    color: #A3F7BF;
+    padding: 0;
+    box-shadow: none;
+    font-size: inherit;
+}
+
+.accordion-item .accordion-header button::after {
+    background-color: #A3F7BF;
+    border-radius: 5px;
+}
