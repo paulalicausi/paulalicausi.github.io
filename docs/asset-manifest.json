@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.549945c8.css",
+    "main.js": "./static/js/main.4cf462f3.js",
+    "static/js/455.ac78c18f.chunk.js": "./static/js/455.ac78c18f.chunk.js",
+    "static/media/me.png": "./static/media/me.418d69e4fa82f8fd5d9b.png",
+    "static/media/monografia.png": "./static/media/monografia.bb53c301f1d8fe2ca029.png",
+    "static/media/li.png": "./static/media/li.d124ece2d94e6a6a8b3f.png",
+    "static/media/caos.jpg": "./static/media/caos.433076098bc91f77e0e8.jpg",
+    "static/media/hr.png": "./static/media/hr.1d5a17ce7f85b868fd3a.png",
+    "static/media/dn.png": "./static/media/dn.6df1c5d66e83c4118c7b.png",
+    "static/media/nebulas.jpg": "./static/media/nebulas.688263dfe35acea36dc3.jpg",
+    "static/media/2.png": "./static/media/2.c741809f575e70dba5ad.png",
+    "static/media/5.png": "./static/media/5.444fe989674e49f6a437.png",
+    "static/media/3.png": "./static/media/3.8c9ee142b8b4fc0ce4d9.png",
+    "static/media/1.png": "./static/media/1.649a7a9a1e82c0ff2788.png",
+    "static/media/4.png": "./static/media/4.995d8a73ab40e7b95795.png",
+    "index.html": "./index.html",
+    "main.549945c8.css.map": "./static/css/main.549945c8.css.map",
+    "main.4cf462f3.js.map": "./static/js/main.4cf462f3.js.map",
+    "455.ac78c18f.chunk.js.map": "./static/js/455.ac78c18f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.549945c8.css",
+    "static/js/main.4cf462f3.js"
+  ]
+}
