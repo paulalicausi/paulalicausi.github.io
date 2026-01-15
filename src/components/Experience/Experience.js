@@ -15,7 +15,7 @@ const Experience = () => {
                                     <div className="mission-item">
                                         <h3>├── <strong>{exp.name}</strong> / {exp.company}</h3>
                                         <p>{exp.time}</p>
-                                        <p>Log: {exp.description}</p>
+                                        <p>Log:</p> <ul dangerouslySetInnerHTML = {{__html: exp.description}} />
                                         <p className="keywords"><i>{exp.keywords}</i></p>                                    
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@ const Experience = () => {
                                     <div className="mission-item">
                                         <h3>├── <strong>{exp.name}</strong> / {exp.company}</h3>
                                         <p>{exp.time}</p>
-                                        <p>Log: {exp.description}</p>
+                                        <p>Log:</p> <ul dangerouslySetInnerHTML = {{__html: exp.description}} />
                                         <p className="keywords"><i>{exp.keywords}</i></p>
                                     </div>
                                 </div>

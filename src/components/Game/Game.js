@@ -16,7 +16,6 @@ const Game = ({ onSkip }) => {
     height: window.innerHeight * 0.6,
   });
 
-  // ✅ Función para ubicar planetas según tamaño del canvas
   const getResponsivePlanets = (width, height) => {
     return [
       { key: 'planet1', x: width * 0.08, y: height * 0.15 },

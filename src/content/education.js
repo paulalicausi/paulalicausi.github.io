@@ -21,6 +21,12 @@ const education = {
   ],
   courses: [
     {
+      title: "The Systems View of Life",
+      place: "Capra Course",
+      time: "2025",
+      keywords: "",
+    },
+    {
       title: "ReactJS",
       place: "Coderhouse",
       time: "2020",

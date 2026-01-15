@@ -94,7 +94,8 @@ footer {
   font-size: 17px;
 }
 
-.accordion-item .accordion-body p {
+.accordion-item .accordion-body p,
+.accordion-item .accordion-body ul {
   font-size: 13px;
 }
 
