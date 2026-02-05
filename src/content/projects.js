@@ -11,16 +11,16 @@ const projects = [
       name: "Nebulas Cafe: sci-fi & futures website",
       img: nebulasImg,
       url: "https://www.nebulascafe.com/",
-      description: "This is my personal project where I write and publish original science fiction stories and philosophical reflections on the future of humanity, consciousness, and the cosmos. I designed, developed and created all content (idea, design, UI/UX, and full-stack development using custom WordPress theme, HTML/CSS, PHP, JavaScript, and Git).",
+      description: "This is my personal project where I write and publish original science fiction stories about philosophical reflections on the future of humanity, consciousness, and the cosmos. I designed, developed and created all content (idea, design, UI/UX, and full-stack development using custom WordPress theme, HTML/CSS, PHP, JavaScript, and Git).",
       time: "2023 - Present",
       keywords: "science fiction, creative writing, WordPress, UI/UX, content creation, creative writing, philosophy, futures thinking",
       category: ["narrative", "technology"]
     }, 
     {
       name: "Taoism and enviroment",
-      url: "",
+      url: "https://rid.ugr.edu.ar/handle/20.500.14125/2010",
       img: taoismImg,
-      description: "Ongoing research project exploring how Eastern philosophies, particularly Taoism, can offer alternative frameworks to rethink the human–nature relationship and inspire more sustainable ways of living.",
+      description: "Project that explores how taoist philosophy can offer an alternative framework to rethink the human–nature relationship and inspire more sustainable ways of living.",
       time: "2025",
       keywords: "philosophy, eastern philosophy, taoism, ecology, environmental ethics, systems thinking",
       category: ["philosophy"]
