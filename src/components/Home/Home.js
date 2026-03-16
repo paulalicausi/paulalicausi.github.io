@@ -118,8 +118,8 @@ const Home = () => {
           <TypewriterText speed={30}>
             <p className={homeStyles.welcome}>
               I'm <span>Paula Licausi</span><br />
-              writer, programmer, and thinker<br />
-              based in Spain, planet Earth.
+              writer, web developer, and thinker<br />
+              based in planet Earth.
             </p>
             <p className={homeStyles.desc}>
               Focused on the intersection between philosophy, technology, and the future, I like bringing ideas to life through <span>code</span> and/or <span>storytelling</span>.
