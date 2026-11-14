@@ -11,15 +11,16 @@
     font-size: 20px;
     text-transform: uppercase;
     margin-bottom: 50px;
-    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.48) 99%, rgba(0, 0, 0, 0.36) 82%);
+    background: var(--nav-glass);
+    margin-top: 25px;
 }
 
 .nav img {
-    width: 40px;
+    width: 75px;
 }
 
 .nav a  {
-    color: #FFF;
+    color: var(--nav-text);
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -33,11 +34,63 @@
 }
 
 .nav a.active small  {
-    color: #CEA3F7;
+    color: var(--soft-accent);
+}
+
+.controls {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 0;
+    padding: 2px;
+    flex-direction: row;
+    position: fixed;
+    border: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--nav-controls);
+    z-index: 3;
+}
+
+.controls p {
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+}
+
+.themeToggle,
+.languageToggle {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    z-index: 3;
+}
+
+.languageToggle button,
+.themeToggle button {
+    border: 0;
+    background: transparent;
+    color: var(--text-color);
+    border-radius: 15px;
+    padding: 3px 6px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.languageToggle button.activeLang,
+.themeToggle button.activeTheme {
+    background: var(--button-accent);
+    color: var(--button-text);
+    border-color: var(--button-accent);
 }
 
 .nav img:hover {
-  transition: ease-in-out .5s;
+    transition: ease-in-out .5s;
 }
 
 @keyframes floating {
@@ -53,14 +106,29 @@
 }
 
 @media (min-width: 1024px) {
-  .nav {
-    flex-direction: column;
-    height: 100vh;
-    padding: 10px 0 10px 20px;
-    width: auto;
-    background: transparent;
-  }
-  .nav img {
-     width: 75px;
-   }
+    .nav {
+        flex-direction: column;
+        height: 100vh;
+        padding: 10px 0 10px 20px;
+        width: auto;
+        background: transparent;
+        margin-top: 0;
+    }
+  
+    .controls {
+        top: 10px;
+        right: 10px;
+        left: unset;
+        padding: 10px;
+        flex-direction: column;
+        border: 1px solid var(--border-color);
+        background: transparent;
+        width: auto;
+    }
+
+    .languageToggle button,
+    .themeToggle button {
+        padding: 5px 10px;
+    }
+
 }

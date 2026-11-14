@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import homeStyles from './Home.module.css';
+import { translations } from '../../content/translations.js';
 
 const TypewriterText = ({ children, speed = 50 }) => {
-
   const flattenChildren = (nodes) => {
-    let result = [];
+    const result = [];
 
-    React.Children.forEach(nodes, node => {
-      if (typeof node === 'string') {
-        result.push({ type: 'text', content: node });
+    React.Children.forEach(nodes, (node) => {
+      if (typeof node === 'string' || typeof node === 'number') {
+        result.push({ type: 'text', content: String(node) });
       } else if (React.isValidElement(node)) {
         if (node.type === 'br') {
           result.push({ type: 'br' });
-        } else if (node.props && node.props.children) {
-
-          const childrenTokens = flattenChildren(node.props.children);
-          result.push({ type: 'element', element: node, children: childrenTokens });
         } else {
-
-          result.push({ type: 'element', element: node, children: [] });
+          result.push({
+            type: 'element',
+            element: node,
+            children: flattenChildren(node.props.children),
+          });
         }
       }
     });
@@ -27,105 +27,145 @@ const TypewriterText = ({ children, speed = 50 }) => {
     return result;
   };
 
-  const tokens = flattenChildren(children);
+  const tokens = useMemo(
+    () => flattenChildren(children),
+    [children]
+  );
 
-  const [visibleTokens, setVisibleTokens] = useState([]);
-
-  const [tokenIndex, setTokenIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-
-  const getTotalLength = (tokens) => {
-    let length = 0;
-    tokens.forEach(token => {
-      if (token.type === 'text') length += token.content.length;
-      else if (token.type === 'element' && token.children.length > 0) {
-        length += getTotalLength(token.children);
+  const getTotalLength = (items) =>
+    items.reduce((length, token) => {
+      if (token.type === 'text') {
+        return length + token.content.length;
       }
-    });
-    return length;
-  };
+
+      if (token.type === 'element') {
+        return length + getTotalLength(token.children);
+      }
+
+      return length;
+    }, 0);
 
   const totalLength = getTotalLength(tokens);
 
-  const buildVisibleTokens = (tokens, charsLeft) => {
-    let result = [];
-    let charsRemaining = charsLeft;
+  const [progress, setProgress] = useState(0);
+  const [previousTotal, setPreviousTotal] = useState(totalLength);
 
-    for (const token of tokens) {
-      if (charsRemaining <= 0) break;
+  if (previousTotal !== totalLength) {
+    setProgress((current) => {
+      const percentage = previousTotal > 0
+        ? current / previousTotal
+        : 0;
 
+      return Math.min(1, percentage) * totalLength;
+    });
+
+    setPreviousTotal(totalLength);
+  }
+
+  const charIndex = Math.floor(progress);
+
+  const buildVisibleTokens = (items, charsLeft) => {
+    let remaining = charsLeft;
+
+    return items.map((token) => {
       if (token.type === 'text') {
-        if (token.content.length <= charsRemaining) {
-          result.push({ ...token });
-          charsRemaining -= token.content.length;
-        } else {
+        const content = token.content.slice(
+          0,
+          Math.max(0, remaining)
+        );
 
-          result.push({ type: 'text', content: token.content.slice(0, charsRemaining) });
-          charsRemaining = 0;
-        }
-      } else if (token.type === 'br') {
-        result.push(token);
-      } else if (token.type === 'element') {
-        const childTokens = buildVisibleTokens(token.children, charsRemaining);
-        const usedChars = getTotalLength(childTokens);
-        charsRemaining -= usedChars;
-        result.push({ type: 'element', element: token.element, children: childTokens });
+        remaining = Math.max(0, remaining - token.content.length);
+
+        return { ...token, content };
       }
-    }
 
-    return result;
+      if (token.type === 'br') {
+        return token;
+      }
+
+      if (token.type === 'element') {
+        const childLength = getTotalLength(token.children);
+
+        const visibleChildren = buildVisibleTokens(
+          token.children,
+          remaining
+        );
+
+        remaining = Math.max(0, remaining - childLength);
+
+        return {
+          ...token,
+          children: visibleChildren,
+        };
+      }
+
+      return token;
+    });
   };
 
   useEffect(() => {
-    if (charIndex > totalLength) return;
+    if (progress >= totalLength) return;
+
     const timeout = setTimeout(() => {
-      setVisibleTokens(buildVisibleTokens(tokens, charIndex));
-      setCharIndex(charIndex + 1);
+      setProgress((current) =>
+        Math.min(current + 1, totalLength)
+      );
     }, speed);
 
     return () => clearTimeout(timeout);
-  }, [charIndex, tokens, totalLength, speed]);
+  }, [progress, totalLength, speed]);
 
-  const renderTokens = (tokens) => {
-    return tokens.map((token, i) => {
+  const renderTokens = (items) =>
+    items.map((token, index) => {
       if (token.type === 'text') {
-        return <React.Fragment key={i}>{token.content}</React.Fragment>;
-      } else if (token.type === 'br') {
-        return <br key={i} />;
-      } else if (token.type === 'element') {
-        const ElementType = token.element.type;
-     
-        const props = { ...token.element.props };
-        delete props.children;
         return (
-          <ElementType key={i} {...props}>
+          <React.Fragment key={index}>
+            {token.content}
+          </React.Fragment>
+        );
+      }
+
+      if (token.type === 'br') {
+        return <br key={index} />;
+      }
+
+      if (token.type === 'element') {
+        const ElementType = token.element.type;
+        const props = { ...token.element.props };
+
+        delete props.children;
+
+        return (
+          <ElementType key={index} {...props}>
             {renderTokens(token.children)}
           </ElementType>
         );
       }
+
       return null;
     });
-  };
+
+  const visibleTokens = buildVisibleTokens(tokens, charIndex);
 
   return <>{renderTokens(visibleTokens)}</>;
 };
 
-const Home = () => {
+const Home = ({ language = 'en' }) => {
+  const copy = translations[language]?.home ?? translations.en.home;
+
   return (
     <section className={`page container ${homeStyles.home}`}>
       <div className="container justify-content-center d-flex">
         <div className="col-12 col-lg-6">
           <TypewriterText speed={30}>
             <p className={homeStyles.welcome}>
-              I'm <span>Paula Licausi</span><br />
-              writer, web developer, and thinker<br />
-              based in planet Earth.
-            </p>
-            <p className={homeStyles.desc}>
-              Focused on the intersection between philosophy, technology, and the future, I like bringing ideas to life through <span>code</span> and/or <span>storytelling</span>.
+              {copy.intro} <span>{copy.name}</span><br />
+              {copy.role}<br />
+              {copy.location}
             </p>
             <p className={homeStyles.engage}>
-              {"<<<"} Ready to engage? Select planet destination or <Link to="/contact">scan the service log and beam me a message</Link>
+              {copy.prompt}{' '}
+              <Link to="/contact">{copy.message}</Link>
             </p>
           </TypewriterText>
         </div>

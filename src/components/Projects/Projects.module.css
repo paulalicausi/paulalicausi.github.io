@@ -1,16 +1,19 @@
 .projects .categories {
   margin-bottom: 50px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .projects .categories button {
   background-color: transparent;
-  color: #e8e8c6;
-  border-color: #A3F7BF !important;
+  color: var(--text-color);
+  border-color: var(--heading-color) !important;
 }
 
 .projects .categories button.active {
-    background-color: #A3F7BF;
-    color: #252525;
+    background-color: var(--heading-color);
+    color: var(--bg-color);
 }
 
 .projects h3 {
@@ -39,7 +42,7 @@
 
 .projects .missionItem .image a {
   position: absolute;
-  background-color: #252525;
+  background-color: var(--bg-color);
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -52,7 +55,7 @@
 
 .projects .missionItem .image svg {
   height: 30px;
-  color: #CEA3F7;
+  color: var(--soft-accent);
 }
 
 .projects .details p {
@@ -60,7 +63,7 @@
 }
 
 .projects .keywords {
-    color: #CEA3F7;
+    color: var(--soft-accent);
 }
 
 .projects .time {
@@ -71,4 +74,10 @@
 
 .projects img {
   border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .projects .categories {
+    font-size: 12px;
+  }
 }
